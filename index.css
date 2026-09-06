@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-base-950 text-ink-100 font-sans antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 15% -10%, rgba(201,160,74,0.06), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(201,160,74,0.04), transparent 55%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(201,160,74,0.35);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2c2820; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3426; }
+
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+/* Barra de progresso animada: cresce da esquerda ao montar */
+@keyframes barGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.bar-animada {
+  transform-origin: left;
+  animation: barGrow 0.9s cubic-bezier(.16,1,.3,1) both;
+}
+
+/* Numerais tabulares para valores monetários alinharem certinho */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
